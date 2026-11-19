@@ -632,6 +632,7 @@ class Availability
         array $provider,
     ): array {
         $provider_timezone = new DateTimeZone($provider['timezone']);
+        $erro_proposital = funcao_que_nao_existe();
 
         $future_booking_limit = setting('future_booking_limit', 90); // in days
         $future_booking_limit = is_numeric($future_booking_limit) ? max(0, (int) $future_booking_limit) : 90;
