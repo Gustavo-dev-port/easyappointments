@@ -29,6 +29,15 @@ jobs:
           extensions: gd
           coverage: xdebug
 
+      # O TimezonesTest usa identificadores legados (ex.: Asia/Calcutta). O PHP do
+      # runner usa o tzdata do Ubuntu, onde esses nomes ficam em tzdata-legacy.
+      # O primeiro passo registra no log se o nome existe; o segundo instala o pacote.
+      - name: Diagnóstico de fuso (identificadores legados)
+        run: ls -l /usr/share/zoneinfo/Asia/Calcutta || echo "Asia/Calcutta ausente no runner"
+
+      - name: Instalar tzdata-legacy
+        run: sudo apt-get update && sudo apt-get install -y tzdata-legacy
+
       - name: Descobrir pasta de cache do Composer
         id: composer-cache
         run: echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
