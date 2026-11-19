@@ -58,6 +58,9 @@ jobs:
       - name: Regenerate autoload for tests
         run: composer dump-autoload --no-interaction
 
+      - name: Analise estatica (PHPStan)
+        run: vendor/bin/phpstan analyse --memory-limit=1G --no-progress
+
       - name: Run PHPUnit com cobertura
         run: |
           mkdir -p coverage

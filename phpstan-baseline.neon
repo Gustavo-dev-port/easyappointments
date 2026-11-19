@@ -1,0 +1,463 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$db\.$#'
+			identifier: property.notFound
+			count: 9
+			path: application/libraries/Accounts.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$roles_model\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Accounts.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$timezones\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Accounts.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$users_model\.$#'
+			identifier: property.notFound
+			count: 5
+			path: application/libraries/Accounts.php
+
+		-
+			message: '#^Access to constant LANGUAGE on an unknown class Config\.$#'
+			identifier: class.notFound
+			count: 1
+			path: application/libraries/Accounts.php
+
+		-
+			message: '#^Function random_string not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: application/libraries/Accounts.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$accounts\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Api.php
+
+		-
+			message: '#^Attribute class JetBrains\\PhpStorm\\NoReturn does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: application/libraries/Api.php
+
+		-
+			message: '#^Constant DB_SLUG_ADMIN not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: application/libraries/Api.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$appointments_model\.$#'
+			identifier: property.notFound
+			count: 3
+			path: application/libraries/Availability.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$blocked_periods_model\.$#'
+			identifier: property.notFound
+			count: 3
+			path: application/libraries/Availability.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$unavailabilities_model\.$#'
+			identifier: property.notFound
+			count: 2
+			path: application/libraries/Availability.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$working_plan_exceptions_model\.$#'
+			identifier: property.notFound
+			count: 2
+			path: application/libraries/Availability.php
+
+		-
+			message: '#^Parameter \#1 \$array \(list\) of array_values is already a list, call has no effect\.$#'
+			identifier: arrayValues.list
+			count: 1
+			path: application/libraries/Availability.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$ics_file\.$#'
+			identifier: property.notFound
+			count: 4
+			path: application/libraries/Caldav_sync.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$providers_model\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Caldav_sync.php
+
+		-
+			message: '#^Access to an undefined property Sabre\\VObject\\Component\\VEvent\:\:\$DESCRIPTION\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Caldav_sync.php
+
+		-
+			message: '#^Access to an undefined property Sabre\\VObject\\Component\\VEvent\:\:\$DTEND\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Caldav_sync.php
+
+		-
+			message: '#^Access to an undefined property Sabre\\VObject\\Component\\VEvent\:\:\$DTSTART\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Caldav_sync.php
+
+		-
+			message: '#^Access to an undefined property Sabre\\VObject\\Component\\VEvent\:\:\$LOCATION\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Caldav_sync.php
+
+		-
+			message: '#^Access to an undefined property Sabre\\VObject\\Component\\VEvent\:\:\$STATUS\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Caldav_sync.php
+
+		-
+			message: '#^Access to an undefined property Sabre\\VObject\\Component\\VEvent\:\:\$SUMMARY\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Caldav_sync.php
+
+		-
+			message: '#^Access to an undefined property Sabre\\VObject\\Component\\VEvent\:\:\$TRANSP\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Caldav_sync.php
+
+		-
+			message: '#^Access to an undefined property Sabre\\VObject\\Component\\VEvent\:\:\$UID\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Caldav_sync.php
+
+		-
+			message: '#^Access to an undefined property Sabre\\VObject\\Document\:\:\$VEVENT\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Caldav_sync.php
+
+		-
+			message: '#^Call to an undefined method Sabre\\VObject\\Document\:\:expand\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: application/libraries/Caldav_sync.php
+
+		-
+			message: '#^Expression on left side of \?\? is not nullable\.$#'
+			identifier: nullCoalesce.expr
+			count: 5
+			path: application/libraries/Caldav_sync.php
+
+		-
+			message: '#^Negated boolean expression is always false\.$#'
+			identifier: booleanNot.alwaysFalse
+			count: 1
+			path: application/libraries/Caldav_sync.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$customers_model\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Cleanup.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$db\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Cleanup.php
+
+		-
+			message: '#^Constant APPPATH not found\.$#'
+			identifier: constant.notFound
+			count: 3
+			path: application/libraries/Cleanup.php
+
+		-
+			message: '#^Constant STORAGE_RETENTION_DAYS not found\.$#'
+			identifier: constant.notFound
+			count: 3
+			path: application/libraries/Cleanup.php
+
+		-
+			message: '#^Method EA_Migration\:\:current_version\(\) should return int but returns string\.$#'
+			identifier: return.type
+			count: 1
+			path: application/libraries/EA_Migration.php
+
+		-
+			message: '#^Constant FCPATH not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: application/libraries/Email_messages.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$appointments_model\.$#'
+			identifier: property.notFound
+			count: 3
+			path: application/libraries/Google_sync.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$customers_model\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Google_sync.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$providers_model\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Google_sync.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$services_model\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Google_sync.php
+
+		-
+			message: '#^Access to an undefined property Google\\Service\\Calendar\\Event\:\:\$attendees\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Google_sync.php
+
+		-
+			message: '#^Function site_url not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: application/libraries/Google_sync.php
+
+		-
+			message: '#^Parameter \#2 \$timestamp of function date expects int\|null, string given\.$#'
+			identifier: argument.type
+			count: 2
+			path: application/libraries/Google_sync.php
+
+		-
+			message: '#^Parameter \#1 \$string of function md5 expects string, int given\.$#'
+			identifier: argument.type
+			count: 1
+			path: application/libraries/Ics_file.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$admins_model\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Instance.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$customers_model\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Instance.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$dbutil\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Instance.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$migration\.$#'
+			identifier: property.notFound
+			count: 9
+			path: application/libraries/Instance.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$providers_model\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Instance.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$services_model\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Instance.php
+
+		-
+			message: '#^Constant APPPATH not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: application/libraries/Instance.php
+
+		-
+			message: '#^Constant CALENDAR_VIEW_DEFAULT not found\.$#'
+			identifier: constant.notFound
+			count: 2
+			path: application/libraries/Instance.php
+
+		-
+			message: '#^Function random_string not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: application/libraries/Instance.php
+
+		-
+			message: '#^Function write_file not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: application/libraries/Instance.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$accounts\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Ldap_client.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$roles_model\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Ldap_client.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$timezones\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Ldap_client.php
+
+		-
+			message: '#^Access to constant LANGUAGE on an unknown class Config\.$#'
+			identifier: class.notFound
+			count: 1
+			path: application/libraries/Ldap_client.php
+
+		-
+			message: '#^Constant LDAP_WHITELISTED_ATTRIBUTES not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: application/libraries/Ldap_client.php
+
+		-
+			message: '#^Parameter \#1 \$ldap of function ldap_error expects LDAP\\Connection, false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: application/libraries/Ldap_client.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$admins_model\.$#'
+			identifier: property.notFound
+			count: 2
+			path: application/libraries/Notifications.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$email_messages\.$#'
+			identifier: property.notFound
+			count: 8
+			path: application/libraries/Notifications.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$ics_file\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Notifications.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$lang\.$#'
+			identifier: property.notFound
+			count: 10
+			path: application/libraries/Notifications.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$providers_model\.$#'
+			identifier: property.notFound
+			count: 2
+			path: application/libraries/Notifications.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$secretaries_model\.$#'
+			identifier: property.notFound
+			count: 2
+			path: application/libraries/Notifications.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$appointments_model\.$#'
+			identifier: property.notFound
+			count: 2
+			path: application/libraries/Permissions.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$roles_model\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Permissions.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$secretaries_model\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Permissions.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$users_model\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Permissions.php
+
+		-
+			message: '#^Constant DB_SLUG_ADMIN not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: application/libraries/Permissions.php
+
+		-
+			message: '#^Constant DB_SLUG_PROVIDER not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: application/libraries/Permissions.php
+
+		-
+			message: '#^Constant DB_SLUG_SECRETARY not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: application/libraries/Permissions.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$appointments_model\.$#'
+			identifier: property.notFound
+			count: 4
+			path: application/libraries/Synchronization.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$caldav_sync\.$#'
+			identifier: property.notFound
+			count: 4
+			path: application/libraries/Synchronization.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$google_sync\.$#'
+			identifier: property.notFound
+			count: 7
+			path: application/libraries/Synchronization.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$providers_model\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Synchronization.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$unavailabilities_model\.$#'
+			identifier: property.notFound
+			count: 2
+			path: application/libraries/Synchronization.php
+
+		-
+			message: '#^Access to an undefined property CI_Controller\:\:\$webhooks_model\.$#'
+			identifier: property.notFound
+			count: 1
+			path: application/libraries/Webhooks_client.php

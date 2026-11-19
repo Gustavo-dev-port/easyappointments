@@ -1,0 +1,14 @@
+includes:
+    - phpstan-baseline.neon
+
+parameters:
+    level: 5
+    paths:
+        - application/libraries
+    scanDirectories:
+        - system/core
+        - application/core
+        - application/helpers
+    scanFiles:
+        - system/libraries/Migration.php
+    tmpDir: .phpstan-cache
