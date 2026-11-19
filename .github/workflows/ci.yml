@@ -1,15 +1,22 @@
 name: CI
 
-on: [ push ]
+# Roda em pull requests e em pushes na branch principal do trabalho (a3/base).
+# O job "qualidade" é o quality gate: falha se algum teste quebrar ou se a
+# cobertura do módulo crítico (Availability) ficar abaixo da meta.
+on:
+  push:
+    branches: [ 'a3/base' ]
+  pull_request:
+    branches: [ 'a3/base' ]
+
+env:
+  # Meta de cobertura de linhas do Availability.php, em %.
+  # Baseline medido: 24,91%. Etapa 1: não regredir (24). Meta final: decidida pelo grupo.
+  META_COBERTURA_AVAILABILITY: "24"
 
 jobs:
-  build-test:
+  qualidade:
     runs-on: ubuntu-latest
-
-    strategy:
-      fail-fast: false
-      matrix:
-        php-version: [ '8.2', '8.3', '8.4' ]
 
     steps:
       - name: Git clone
@@ -18,11 +25,23 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php-version }}
+          php-version: '8.5'
           extensions: gd
+          coverage: xdebug
+
+      - name: Descobrir pasta de cache do Composer
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
+
+      - name: Cache do Composer
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: composer-${{ runner.os }}-${{ hashFiles('composer.lock') }}
+          restore-keys: composer-${{ runner.os }}-
 
       - name: Install Composer dependencies
-        run: composer update --prefer-dist --no-interaction --no-progress
+        run: composer install --prefer-dist --no-interaction --no-progress
 
       - name: Create config file
         run: cp config-sample.php config.php
@@ -30,8 +49,23 @@ jobs:
       - name: Regenerate autoload for tests
         run: composer dump-autoload --no-interaction
 
-      - name: Run PHPUnit
-        run: vendor/bin/phpunit --configuration phpunit.xml
+      - name: Run PHPUnit com cobertura
+        run: |
+          mkdir -p coverage
+          vendor/bin/phpunit --configuration phpunit.xml \
+            --coverage-filter application/libraries \
+            --coverage-text \
+            --coverage-clover coverage/clover.xml
+
+      - name: Quality gate - cobertura do Availability
+        run: python3 a3/ci/verificar_cobertura.py coverage/clover.xml Availability.php "$META_COBERTURA_AVAILABILITY"
+
+      - name: Guardar relatório de cobertura
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cobertura-clover
+          path: coverage/clover.xml
 
   frontend-build:
     runs-on: ubuntu-latest

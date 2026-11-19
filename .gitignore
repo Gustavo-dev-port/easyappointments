@@ -32,3 +32,5 @@
 /vendor/
 /metafile
 .DS_Store
+
+coverage/
