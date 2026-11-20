@@ -1,0 +1,23 @@
+qualidade	Analise estatica (PHPStan)	﻿2026-11-19T17:10:10.2007822Z ##[group]Run vendor/bin/phpstan analyse --memory-limit=1G --no-progress
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:10.2008403Z ^[[36;1mvendor/bin/phpstan analyse --memory-limit=1G --no-progress^[[0m
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:10.2061615Z shell: /usr/bin/bash -e {0}
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:10.2061883Z env:
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:10.2062093Z   META_COBERTURA_AVAILABILITY: 24
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:10.2062391Z   COMPOSER_PROCESS_TIMEOUT: 0
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:10.2062693Z   COMPOSER_NO_INTERACTION: 1
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:10.2062946Z   COMPOSER_NO_AUDIT: 1
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:10.2063163Z ##[endgroup]
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:11.0491834Z Note: Using configuration file /home/runner/work/easyappointments/easyappointments/phpstan.neon.
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:13.5408357Z ##[error]Function funcao_que_nao_existe not found.
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:13.5464845Z  ------ ---------------------------------------------------------------------- 
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:13.5465879Z   Line   Availability.php                                                      
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:13.5466819Z  ------ ---------------------------------------------------------------------- 
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:13.5467874Z   635    Function funcao_que_nao_existe not found.                             
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:13.5469368Z          🪪  function.notFound                                                 
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:13.5470575Z          💡  Learn more at https://phpstan.org/user-guide/discovering-symbols  
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:13.5471195Z  ------ ---------------------------------------------------------------------- 
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:13.5471532Z 
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:13.5471553Z 
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:13.5471898Z  [ERROR] Found 1 error                                                          
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:13.5472233Z 
+qualidade	Analise estatica (PHPStan)	2026-11-19T17:10:13.5754595Z ##[error]Process completed with exit code 1.

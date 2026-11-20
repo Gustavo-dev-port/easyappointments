@@ -1,0 +1,12 @@
+Note: Using configuration file /var/www/html/phpstan.neon.
+ ------ ---------------------------------------------------------------------- 
+  Line   Availability.php                                                      
+ ------ ---------------------------------------------------------------------- 
+  635    Function funcao_que_nao_existe not found.                             
+         🪪  function.notFound                                                 
+         💡  Learn more at https://phpstan.org/user-guide/discovering-symbols  
+ ------ ---------------------------------------------------------------------- 
+
+
+ [ERROR] Found 1 error                                                          
+
