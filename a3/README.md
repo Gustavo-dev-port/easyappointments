@@ -17,7 +17,7 @@ A `main` do fork fica como está, para não misturar com o código fixado. Todo 
 
 ## Como subir o ambiente
 
-Pré-requisitos: Git, Docker com Compose e Python 3 (só para rodar o gate de cobertura fora do container).
+Pré-requisitos: Git, Docker com Compose e Python 3 (só para rodar o gate de cobertura fora do container; no Windows o comando é `python`). Os comandos abaixo foram escritos para o **PowerShell** e também funcionam no Bash, exceto onde indicado.
 
 **1. Configure as quebras de linha antes de baixar o código.** O repositório usa LF. No Windows, a conversão automática para CRLF marca arquivos inteiros como alterados e quebra scripts do container.
 
@@ -51,9 +51,10 @@ export A3_DB_PASSWORD=password A3_ROOT_PASSWORD=root
 **4. Crie o `config.php`** (arquivo ignorado pelo Git) e ajuste a URL para a porta publicada pelo nginx:
 
 ```bash
-cp config-sample.php config.php
+copy config-sample.php config.php 
 # em config.php: const BASE_URL = 'http://localhost:8088';
 ```
+No Linux/macOS, use `cp config-sample.php config.php`.
 
 **5. Suba os containers.**
 
@@ -75,18 +76,14 @@ Para derrubar o ambiente: `docker compose -p a3-ea -f compose.a3.yaml down` (acr
 
 ## Como rodar os testes e a cobertura
 
-Todos os comandos rodam no container `php-fpm`. Abreviação usada abaixo:
-
-```bash
-EXEC="docker compose -p a3-ea -f compose.a3.yaml exec php-fpm"
-```
+Os testes e o PHPStan rodam dentro do container `php-fpm`. Cada comando abaixo está completo: copie e cole.
 
 | O que | Comando |
 |---|---|
-| Testes | `$EXEC vendor/bin/phpunit --configuration phpunit.xml` |
+| Testes | `docker compose -p a3-ea -f compose.a3.yaml exec php-fpm vendor/bin/phpunit --configuration phpunit.xml` |
 | Cobertura (gera `coverage/clover.xml`) | `docker compose -p a3-ea -f compose.a3.yaml exec -e XDEBUG_MODE=coverage php-fpm vendor/bin/phpunit --configuration phpunit.xml --coverage-filter application/libraries --coverage-text --coverage-clover coverage/clover.xml` |
-| Gate de cobertura do `Availability` | `python3 a3/ci/verificar_cobertura.py coverage/clover.xml Availability.php 24` |
-| Análise estática | `$EXEC vendor/bin/phpstan analyse --memory-limit=1G` |
+| Gate de cobertura do `Availability` (roda no seu computador, não no container) | `python a3/ci/verificar_cobertura.py coverage/clover.xml Availability.php 24` (no Linux/macOS: `python3`) |
+| Análise estática | `docker compose -p a3-ea -f compose.a3.yaml exec php-fpm vendor/bin/phpstan analyse --memory-limit=1G` |
 
 O CI (`.github/workflows/ci.yml`) roda esta mesma sequência em todo pull request para a `a3/base`. O job `qualidade` falha se um teste quebrar, se a cobertura do `Availability` ficar abaixo da meta ou se o PHPStan achar erro novo. A meta fica na variável `META_COBERTURA_AVAILABILITY` do workflow.
 
