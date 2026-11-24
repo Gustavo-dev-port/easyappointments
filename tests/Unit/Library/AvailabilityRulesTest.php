@@ -3,6 +3,7 @@
 namespace Tests\Unit\Library;
 
 use Availability;
+use CI_Controller;
 use DateTime;
 use DateTimeZone;
 use InvalidArgumentException;
@@ -22,8 +23,8 @@ class AvailabilityRulesTest extends TestCase
     }
 
     /**
-     * Instancia Availability injetando stubs nos modelos do CodeIgniter para testar
-     * get_available_hours() e get_available_periods() de forma isolada e determinística.
+     * Instancia Availability injetando um CI_Controller anônimo com stubs nos modelos
+     * para testar get_available_hours() e get_available_periods() de forma isolada.
      */
     private function createAvailabilityWithStubs(array $overrides = []): Availability
     {
@@ -63,15 +64,31 @@ class AvailabilityRulesTest extends TestCase
             }
         };
 
-        $ciStub = (object) [
-            'blocked_periods_model' => $blockedPeriodsModel,
-            'working_plan_exceptions_model' => $workingPlanExceptionsModel,
-            'appointments_model' => $appointmentsModel,
-            'unavailabilities_model' => $unavailabilitiesModel,
-        ];
+        $ciStub = new class (
+            $blockedPeriodsModel,
+            $workingPlanExceptionsModel,
+            $appointmentsModel,
+            $unavailabilitiesModel,
+        ) extends CI_Controller {
+            public object $blocked_periods_model;
+            public object $working_plan_exceptions_model;
+            public object $appointments_model;
+            public object $unavailabilities_model;
+
+            public function __construct(
+                object $blockedPeriodsModel,
+                object $workingPlanExceptionsModel,
+                object $appointmentsModel,
+                object $unavailabilitiesModel,
+            ) {
+                $this->blocked_periods_model = $blockedPeriodsModel;
+                $this->working_plan_exceptions_model = $workingPlanExceptionsModel;
+                $this->appointments_model = $appointmentsModel;
+                $this->unavailabilities_model = $unavailabilitiesModel;
+            }
+        };
 
         $ciProperty = $reflection->getProperty('CI');
-        $ciProperty->setAccessible(true);
         $ciProperty->setValue($instance, $ciStub);
 
         return $instance;
@@ -80,7 +97,6 @@ class AvailabilityRulesTest extends TestCase
     private function invokeProtectedMethod(Availability $instance, string $methodName, array $args): mixed
     {
         $method = (new ReflectionClass(Availability::class))->getMethod($methodName);
-        $method->setAccessible(true);
 
         return $method->invokeArgs($instance, $args);
     }
@@ -132,14 +148,12 @@ class AvailabilityRulesTest extends TestCase
         $provider = $this->defaultProvider();
         $service = $this->defaultService(duration: 30, slotInterval: 30);
 
-        // Segunda-feira futura dentro do limite de 90 dias a partir de agora
         $targetDate = (new DateTime('+7 days next monday'))->format('Y-m-d');
 
         $hours = $availability->get_available_hours($targetDate, $service, $provider);
 
         $this->assertNotEmpty($hours);
         $this->assertSame('08:00', $hours[0]);
-        // Último slot de 30 min que cabe até 18:00 é 17:30 (18:00 não pode ser ofertado)
         $this->assertSame('17:30', $hours[array_key_last($hours)]);
         $this->assertNotContains('18:00', $hours);
     }
