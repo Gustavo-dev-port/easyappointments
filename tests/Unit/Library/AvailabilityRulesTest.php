@@ -19,6 +19,19 @@ class AvailabilityRulesTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        if (!class_exists('CI_Controller', false)) {
+            if (defined('BASEPATH') && file_exists(BASEPATH . 'core/Controller.php')) {
+                require_once BASEPATH . 'core/Controller.php';
+            } else {
+                eval('class CI_Controller {}');
+            }
+        }
+
+        if (!function_exists('setting')) {
+            eval('function setting(string $key, mixed $default = null): mixed { return $default; }');
+        }
+
         require_once APPPATH . 'libraries/Availability.php';
     }
 
