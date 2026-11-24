@@ -142,13 +142,15 @@ Todo PR usa o modelo em `.github/pull_request_template.md` e cita o **entregáve
 |---|---|
 | Pipeline com quality gate | `.github/workflows/ci.yml`, `a3/ci/verificar_cobertura.py` |
 | Análise estática com baseline | `phpstan.neon`, `phpstan-baseline.neon` |
-| Evidências do pipeline (gate bloqueando e liberando, PHPStan reprovando) | `a3/evidencias/` |
+| Documento do pipeline (Entregável 4) | `a3/04-pipeline.md` |
+| Evidências do pipeline (gate bloqueando e liberando, PHPStan reprovando, proteção da branch) | `a3/evidencias/pipeline/` |
 | Ambiente de laboratório | `compose.a3.yaml` |
-| Gestão de configuração | este arquivo, tags e releases do fork |
+| Gestão de configuração (Entregável 5) | este arquivo e `a3/05-gestao-configuracao.md` |
 | Plano de qualidade e SQA | `a3/01-plano-qualidade.md` |
 | Revisão por pares e auditoria do processo | `a3/atas/` |
 | Estratégia e plano de testes | `a3/02-estrategia-plano-testes.md` |
-| Testes automatizados (PHPUnit, TDD e BDD) | `tests/Unit/`, `application/libraries/BookingPolicyValidator.php`, `features/` |
+| Testes automatizados (Entregável 3) | `a3/03-testes-automatizados.md`; código em `tests/Unit/`, `application/libraries/BookingPolicyValidator.php`, `features/` |
+| Testes manuais (capturas) | `a3/evidencias/testes-manuais/` |
 | Versão e baseline | `a3/registros/`, `a3/evidencias/baseline-local/` |
 | Execução dos testes e cobertura (PR #7) | `a3/evidencias/testes-unitarios-e2-e3/` |
 | Demais entregáveis | _a preencher pelo grupo_ |
