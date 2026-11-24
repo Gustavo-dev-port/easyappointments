@@ -15,6 +15,8 @@ env:
   # Meta final do plano de testes: 80%.
   META_COBERTURA_AVAILABILITY: "80"
 
+
+
 jobs:
   qualidade:
     runs-on: ubuntu-latest
