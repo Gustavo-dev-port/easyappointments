@@ -1,0 +1,16 @@
+Evidencia local do quality gate (Entregavel 4) - o script funciona nos dois sentidos
+Arquivo medido: coverage/clover.xml (gerado em 2026-11-24 20:15 UTC, com os testes de Availability do PR #9)
+Script: a3/ci/verificar_cobertura.py (o mesmo que o CI executa)
+
+$ python3 a3/ci/verificar_cobertura.py coverage/clover.xml Availability.php 80
+Availability.php: 255/269 linhas cobertas = 94.80%
+Meta do grupo: 80.00%
+Quality gate aprovado.
+codigo de saida: 0
+
+$ python3 a3/ci/verificar_cobertura.py coverage/clover.xml Availability.php 96
+Availability.php: 255/269 linhas cobertas = 94.80%
+Meta do grupo: 96.00%
+QUALITY GATE REPROVADO: cobertura abaixo da meta.
+codigo de saida: 1
+
