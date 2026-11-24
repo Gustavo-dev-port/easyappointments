@@ -29,7 +29,7 @@ Ponto de partida medido: **24,91%** de linhas do `Availability` (67 de 269) e 2 
 | --- | --- | --- |
 | Baseline (`a3-baseline`) | 24% | Regra "não regredir" (PRs #1 a #3) |
 | PR #7 (testes das regras RN01 a RN12) | 69% | Medido no CI: 89,59% (241 de 269 linhas) |
-| PR de correções (testes de horas, limites e períodos) | **80%** | Meta final do Plano de Testes; medido localmente: 94,80% (255 de 269) |
+| PR #9 (testes de horas, limites e períodos) | **80%** | Meta final do Plano de Testes; medido localmente: 94,80% (255 de 269) |
 
 A escada anterior (40%, 50% e 70%) foi substituída: os testes entraram mais rápido que o previsto. A meta de 69% deixava 20 pontos de folga e não pegaria uma regressão grande, então subiu para 80%, valor do Plano de Testes `PT-EA-SQ04-2026` v2.0.
 

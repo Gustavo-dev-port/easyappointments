@@ -27,7 +27,7 @@ A auditoria considera o controle de versões, as revisões de código, a execuç
 | Identificação | Não conformidade | Ação corretiva | Responsável | Prazo |
 |---|---|---|---|---|
 | NC-01 | O plano de qualidade cita arquivos que não estavam no repositório (plano, atas, `registros/`, evidências do baseline). | Commitar os arquivos na `a3/`, no mesmo PR desta ata. | Gustavo (autor do PR) | Neste PR |
-| NC-02 | A meta do gate (`META_COBERTURA_AVAILABILITY`) ficou em 69.0 com cobertura medida de 89,59%: folga de ~20 pontos, o gate não pegaria uma regressão grande. | Subir a meta para 80, valor do plano de testes, medindo com os testes do PR #9 incluídos. | Gustavo (autor do PR) | Neste PR |
+| NC-02 | A meta do gate (`META_COBERTURA_AVAILABILITY`) ficou em 69.0 com cobertura medida de 89,59%: folga de ~20 pontos, o gate não pegaria uma regressão grande. | Subir a meta para 80, valor do plano de testes, medindo com os testes do PR #9 incluídos. | Gustavo (autor do PR) | Resolvida no PR #9 (mergeado, `fd86c5d0`) |
 | NC-03 | O README diz "merge por squash", mas o histórico mostra merge commits (PR #7) e squashes cujas mensagens citam números de PR trocados. | README ajustado neste PR (merge commit ou rebase nos PRs com evidência de processo). Falta conferir o número do PR nas mensagens de commit dos próximos PRs. | Gustavo (autor do PR) | Neste PR |
 
 ## 4. Pontos não verificados

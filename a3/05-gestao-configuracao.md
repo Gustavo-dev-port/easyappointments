@@ -34,7 +34,7 @@ A descrição completa (branching, convenção de commits, pull requests, tags) 
 | #6 | `BookingPolicyValidator` com TDD (RN11) | Mergeado |
 | #8 | BDD da RN11 com Behat e passo no CI | Mergeado (a mensagem do commit cita `#7`) |
 | #7 | Plano de testes e suíte de regras do `Availability` | Mergeado |
-| #9 | Testes de horas, limites e períodos; meta 80% | Substituído pelo PR de correções |
+| #9 | Testes de horas, limites e períodos; meta 80% | Mergeado (`fd86c5d0`, merge commit) |
 | PR de correções | Plano de qualidade, atas, registros, evidências e Entregáveis 3 a 5 | Em revisão |
 
 ## 4. Evidências
