@@ -15,8 +15,13 @@ class BookingPolicyValidator
 
     public function validate(DateTimeImmutable $start, DateTimeImmutable $now): array
     {
-        return [];
+        $advanceMinutes = ($start->getTimestamp() - $now->getTimestamp()) / 60;
 
+        if ($advanceMinutes < $this->minAdvanceMinutes) {
+            return ['RN11'];
+        }
+
+        return [];
     }
 
 } 
