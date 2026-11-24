@@ -150,6 +150,7 @@ Todo PR usa o modelo em `.github/pull_request_template.md` e cita o **entregáve
 | Revisão por pares e auditoria do processo | `a3/atas/` |
 | Estratégia e plano de testes | `a3/02-estrategia-plano-testes.md` |
 | Testes automatizados (Entregável 3) | `a3/03-testes-automatizados.md`; código em `tests/Unit/`, `application/libraries/BookingPolicyValidator.php`, `features/` |
+| Prints do TDD, mutação, BDD e PHPStan da RN11 | `a3/evidencias/tdd-bdd-rn11/` |
 | Testes manuais (capturas) | `a3/evidencias/testes-manuais/` |
 | Versão e baseline | `a3/registros/`, `a3/evidencias/baseline-local/` |
 | Execução dos testes e cobertura (PR #7) | `a3/evidencias/testes-unitarios-e2-e3/` |
