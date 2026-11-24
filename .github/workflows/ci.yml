@@ -11,8 +11,9 @@ on:
 
 env:
   # Meta de cobertura de linhas do Availability.php, em %.
-  # Baseline medido: 24,91%. Etapa 1: não regredir (24). Meta final: decidida pelo grupo.
-  META_COBERTURA_AVAILABILITY: "24"
+  # Baseline medido: 24,91%. Com os testes de horas, limites e periodos: 94,80%.
+  # Meta final do plano de testes: 80%.
+  META_COBERTURA_AVAILABILITY: "80"
 
 jobs:
   qualidade:
