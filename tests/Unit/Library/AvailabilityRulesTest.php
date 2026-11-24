@@ -69,6 +69,11 @@ class AvailabilityRulesTest extends TestCase
             {
                 return 0;
             }
+
+            public function get_attendants_number_for_period($start, $end, $serviceId, $providerId): int
+            {
+                return 0;
+            }
         };
 
         $unavailabilitiesModel = $overrides['unavailabilities_model'] ?? new class {
@@ -284,6 +289,11 @@ class AvailabilityRulesTest extends TestCase
             {
                 return 0;
             }
+
+            public function get_attendants_number_for_period($start, $end, $serviceId, $providerId): int
+            {
+                return 0;
+            }
         };
 
         $unavailabilitiesStub = new class ($targetDate) {
@@ -371,6 +381,11 @@ class AvailabilityRulesTest extends TestCase
             {
                 return 0;
             }
+
+            public function get_attendants_number_for_period($start, $end, $serviceId, $providerId): int
+            {
+                return 0;
+            }
         };
 
         $availability = $this->createAvailabilityWithStubs([
@@ -411,6 +426,11 @@ class AvailabilityRulesTest extends TestCase
             public function get_other_service_attendants_number($start, $end, $serviceId, $providerId): int
             {
                 return 0;
+            }
+
+            public function get_attendants_number_for_period($start, $end, $serviceId, $providerId): int
+            {
+                return 1;
             }
         };
 
