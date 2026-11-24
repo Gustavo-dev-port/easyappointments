@@ -69,6 +69,9 @@ jobs:
             --coverage-text \
             --coverage-clover coverage/clover.xml
 
+      - name: Run Behat (BDD)
+        run: vendor/bin/behat --no-interaction
+
       - name: Quality gate - cobertura do Availability
         run: python3 a3/ci/verificar_cobertura.py coverage/clover.xml Availability.php "$META_COBERTURA_AVAILABILITY"
 
