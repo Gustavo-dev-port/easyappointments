@@ -5,10 +5,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class BookingPolicyValidator
 {
-    /**
-     * RN11: o agendamento precisa ser feito com no mínimo esta antecedência, em minutos.
-     * A borda é aceita: começar exatamente na antecedência mínima é permitido, só recusa abaixo dela.
-     */
     public const RULE_MIN_ADVANCE = 'RN11';
 
     private int $minAdvanceMinutes;
@@ -17,7 +13,11 @@ class BookingPolicyValidator
     {
         $this->minAdvanceMinutes = $minAdvanceMinutes;
     }
-    
+
+    /**
+     * RN11: o agendamento precisa ser feito com no mínimo esta antecedência, em minutos.
+     * A borda é aceita: começar exatamente na antecedência mínima é permitido, só recusa abaixo dela.
+     */
     public function validate(DateTimeImmutable $start, DateTimeImmutable $now): array
     {
         $advanceMinutes = ($start->getTimestamp() - $now->getTimestamp()) / 60;
