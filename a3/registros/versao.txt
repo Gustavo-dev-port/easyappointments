@@ -1,0 +1,4 @@
+URL: https://github.com/alextselegidis/easyappointments
+Ref: 1.6.1
+SHA: d30cba6d90772e3a76dcba358322e55746704339
+Data: 2026-11-18T15:22:27
