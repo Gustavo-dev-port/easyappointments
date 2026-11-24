@@ -1,0 +1,15 @@
+# Saida de "git push grupo a3/base" com um commit vazio de teste, feito em 18/11/2026.
+# A branch a3/base estava protegida: o GitHub recusou o push direto.
+
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 212 bytes | 212.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: error: GH006: Protected branch update failed for refs/heads/a3/base.
+remote:
+remote: - Changes must be made through a pull request.
+remote:
+remote: - Required status check "qualidade" is expected.
+To https://github.com/Gustavo-dev-port/easyappointments.git
+ ! [remote rejected]   a3/base -> a3/base (protected branch hook declined)
+error: failed to push some refs to 'https://github.com/Gustavo-dev-port/easyappointments.git'

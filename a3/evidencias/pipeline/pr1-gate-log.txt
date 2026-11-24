@@ -1,0 +1,8 @@
+# Passo "Quality gate - cobertura do Availability" do PR #1, com a meta temporariamente em 30%.
+# Resultado: o gate reprovou e o job "qualidade" ficou vermelho.
+
+Run python3 a3/ci/verificar_cobertura.py coverage/clover.xml Availability.php "$META_COBERTURA_AVAILABILITY"
+Availability.php: 67/269 linhas cobertas = 24.91%
+Meta do grupo: 30.00%
+QUALITY GATE REPROVADO: cobertura abaixo da meta.
+Error: Process completed with exit code 1.
