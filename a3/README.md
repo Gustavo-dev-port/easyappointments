@@ -82,7 +82,7 @@ Os testes e o PHPStan rodam dentro do container `php-fpm`. Cada comando abaixo e
 |---|---|
 | Testes | `docker compose -p a3-ea -f compose.a3.yaml exec php-fpm vendor/bin/phpunit --configuration phpunit.xml` |
 | Cobertura (gera `coverage/clover.xml`) | `docker compose -p a3-ea -f compose.a3.yaml exec -e XDEBUG_MODE=coverage php-fpm vendor/bin/phpunit --configuration phpunit.xml --coverage-filter application/libraries --coverage-text --coverage-clover coverage/clover.xml` |
-| Gate de cobertura do `Availability` (roda no seu computador, não no container) | `python a3/ci/verificar_cobertura.py coverage/clover.xml Availability.php 24` (no Linux/macOS: `python3`) |
+| Gate de cobertura do `Availability` (roda no seu computador, não no container) | `python a3/ci/verificar_cobertura.py coverage/clover.xml Availability.php 80` (no Linux/macOS: `python3`) |
 | Análise estática | `docker compose -p a3-ea -f compose.a3.yaml exec php-fpm vendor/bin/phpstan analyse --memory-limit=1G` |
 
 O CI (`.github/workflows/ci.yml`) roda esta mesma sequência em todo pull request para a `a3/base`. O job `qualidade` falha se um teste quebrar, se a cobertura do `Availability` ficar abaixo da meta ou se o PHPStan achar erro novo. A meta fica na variável `META_COBERTURA_AVAILABILITY` do workflow.
@@ -91,9 +91,9 @@ O CI (`.github/workflows/ci.yml`) roda esta mesma sequência em todo pull reques
 
 | Métrica | Baseline (`a3-baseline`) | Meta |
 |---|---|---|
-| Testes | 95 testes, 140 asserções | não regredir |
+| Testes | 95 testes, 140 asserções | não regredir (108 no PR #7; mais com os testes de horas, limites e períodos) |
 | Cobertura de linhas, `application/libraries` | 12,90% (256 de 1985) | acompanhar |
-| Cobertura de linhas, `Availability.php` | 24,91% (67 de 269) | 24% agora; subir conforme decisão do grupo |
+| Cobertura de linhas, `Availability.php` | 24,91% (67 de 269) | 80% (meta do plano de testes); medido: 89,59% no PR #7 |
 | Cobertura de métodos, `Availability.php` | 22,22% (2 de 9) | acompanhar |
 | PHPStan (nível 5, `application/libraries`) | 151 apontamentos no baseline | nenhum erro novo |
 
@@ -106,7 +106,7 @@ Adotamos **trunk-based development**, com `a3/base` como tronco.
 - Somos 4 pessoas e temos cerca de 2 semanas. Branches longas gerariam conflito e integração tardia, e Git Flow (`develop`, `release/*`, `hotfix/*`) seria burocracia sem benefício.
 - Cada tarefa vira uma branch curta (1 a 3 dias) e entra por pull request. O histórico mostra quem fez o quê.
 - Ninguém faz push direto na `a3/base`. A regra de proteção exige pull request, o check `qualidade` verde e 1 aprovação de outra pessoa.
-- Merge por **squash**: um PR vira um commit na `a3/base`. A branch é apagada depois.
+- Merge por **merge commit ou rebase**, para preservar os commits do histórico (por exemplo, os do ciclo TDD red → green → refactor). Não usamos squash nos PRs que carregam evidência de processo. A branch é apagada depois.
 
 Nome da branch: `a3/<tipo>-<assunto-curto>`, por exemplo `a3/docs-readme` ou `a3/test-availability`.
 
@@ -145,4 +145,10 @@ Todo PR usa o modelo em `.github/pull_request_template.md` e cita o **entregáve
 | Evidências do pipeline (gate bloqueando e liberando, PHPStan reprovando) | `a3/evidencias/` |
 | Ambiente de laboratório | `compose.a3.yaml` |
 | Gestão de configuração | este arquivo, tags e releases do fork |
+| Plano de qualidade e SQA | `a3/01-plano-qualidade.md` |
+| Revisão por pares e auditoria do processo | `a3/atas/` |
+| Estratégia e plano de testes | `a3/02-estrategia-plano-testes.md` |
+| Testes automatizados (PHPUnit, TDD e BDD) | `tests/Unit/`, `application/libraries/BookingPolicyValidator.php`, `features/` |
+| Versão e baseline | `a3/registros/`, `a3/evidencias/baseline-local/` |
+| Execução dos testes e cobertura (PR #7) | `a3/evidencias/testes-unitarios-e2-e3/` |
 | Demais entregáveis | _a preencher pelo grupo_ |
